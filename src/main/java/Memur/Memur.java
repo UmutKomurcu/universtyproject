@@ -2,13 +2,13 @@ package Memur;
 
 import Calisan.Calisan;
 
-public class Memur extends Calisan {
+public abstract class Memur extends Calisan {
     private String departman;
     private String mesai;
     public Memur(String adSoyad, String telefon, String eposta, String departman, String mesai) {
         super(adSoyad, telefon, eposta);
         this.departman=departman;
-        this.mesai=departman;
+        this.mesai=mesai;
     }
 
     public String getDepartman() {
@@ -30,4 +30,6 @@ public class Memur extends Calisan {
     public void calis(){
         System.out.println(this.getAdSoyad() + " çalişmaya başladı Saat " + getDtfrm().format(getMyTime()));
     }
+
+
 }

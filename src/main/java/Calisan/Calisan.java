@@ -2,13 +2,25 @@ package Calisan;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
-public class Calisan {
+public abstract class Calisan {
     private String adSoyad;
     private String telefon;
     private String eposta;
-    LocalTime myTime=LocalTime.now();
+    LocalTime myTime = LocalTime.now();
     DateTimeFormatter dtfrm = DateTimeFormatter.ofPattern("HH.mm.a");
+    Scanner sc = new Scanner(System.in);
+
+
+    public Scanner getSc() {
+        return sc;
+    }
+
+    public void setSc(Scanner sc) {
+        this.sc = sc;
+    }
+
 
     public LocalTime getMyTime() {
         return myTime;
@@ -26,11 +38,24 @@ public class Calisan {
         this.dtfrm = dtfrm;
     }
 
+
     public Calisan(String adSoyad, String telefon, String eposta) {
         this.adSoyad = adSoyad;
         this.telefon = telefon;
         this.eposta = eposta;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Calisan{" +
+//                "adSoyad='" + adSoyad + '\'' +
+//                ", telefon='" + telefon + '\'' +
+//                ", eposta='" + eposta + '\'' +
+//                ", myTime=" + myTime +
+//                ", dtfrm=" + dtfrm +
+//                ", sc=" + sc +
+//                '}';
+//    }
 
     public String getAdSoyad() {
         return adSoyad;
@@ -56,14 +81,17 @@ public class Calisan {
         this.eposta = eposta;
     }
 
-    public void giris(){
-        System.out.println( this.adSoyad + "üniversiteye  giriş yaptı saat " + dtfrm.format(myTime) );
-    }
-    public void cikis(){
-
-        System.out.println(this.adSoyad + "üniversiteden  cikis" + " saat " + dtfrm.format(myTime));
-    }
-    public void yemekhane(){
-        System.out.println( this.adSoyad +" yemekhaneye giriş yaptı. Saat " + dtfrm.format(myTime) );
-    }
+    public abstract void giris() ;
+  //
+    //    }
+    public abstract void mesaiSaati();
+    public abstract void cikis() ;
+//{
+//
+//        System.out.println(this.adSoyad + "üniversiteden  cikis" + " saat " + dtfrm.format(myTime));
+//    }
+    public abstract void yemekhane() ;
+  //  {
+    //        System.out.println(this.adSoyad + " yemekhaneye giriş yaptı. Saat " + dtfrm.format(myTime));
+    //    }
 }
